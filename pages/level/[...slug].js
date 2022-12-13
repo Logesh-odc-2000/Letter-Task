@@ -28,25 +28,31 @@ export default function ListLevel() {
     }
     suffix = slug?.join('/');
     return (
-        <div className='bg-gray-200'>
-            <div className={styles.container}>
-                <main className={styles.main}>
-                    <ul role="list" className="grid grid-cols-1 gap-6 xl:grid-cols-4 lg:grid-cols-4">
-                        {list?.map((item) => <Link href={`${suffix}/${item.name}`}  >
-                            <li className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
-                                <div className="flex w-full items-center justify-between space-x-6 p-6">
-                                    <div className="flex-1 truncate">
-                                        <div className="flex items-center space-x-3">
-                                            <img src={item.imgSrc} />
-                                            <h3 className="truncate text-sm font-medium text-gray-900">{item.name}</h3>
-                                        </div>
-                                    </div>
+        <>
+        <div className="bg-gray-100  h-full h-screen">
+        <div className="  mx-auto max-w-4xl   sm:py-28 sm:px-10 object-cover h-96 w-full lg:max-w-2xl lg:px-10">
+            <div className='py-10 rounded-lg'>
+                <Carousel>
+                {list?.map((item) => <Link href={`${suffix}/${item.name}`}  >
+                        <>
+                            <div className='object-cover'>
+                                <div className=" bg-gray-200  xl:h-96">
+                                    <img src={item.imgSrc}
+                                     className="h-full w-full object-cover" />
                                 </div>
-                            </li>
+                                <div   className=" text-center font-bold  first-letter:text-blue-700 text-red-500  text-2xl">
+                                    {item.name}
+                                </div>
+                            </div>
+
+                        </>
                         </Link>)}
-                    </ul>
-                </main>
+                </Carousel>
             </div>
+
         </div>
+    </div>
+</>
+
     )
 }   
